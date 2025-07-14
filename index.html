@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>PDF to Word Converter</title>
-  <link rel="stylesheet" href="styles.css">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f8f9fa;
+      background: #f4f7f9;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -15,58 +14,60 @@
       margin: 0;
     }
     .container {
-      background: white;
+      background: #ffffff;
       padding: 40px;
       border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      max-width: 480px;
       width: 100%;
-      max-width: 400px;
+      text-align: center;
     }
     h1 {
-      margin-bottom: 24px;
       font-size: 24px;
+      margin-bottom: 24px;
     }
-    input[type="file"] {
-      display: block;
-      margin: 0 auto 16px auto;
+    .notice {
       font-size: 16px;
+      color: #444;
+      padding: 20px;
+      background: #fff3cd;
+      border: 1px solid #ffeeba;
+      border-radius: 12px;
     }
-    button {
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      border: none;
+    .disabled-form {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+    .fake-input {
+      display: inline-block;
+      background: #eee;
+      padding: 10px 15px;
       border-radius: 8px;
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .disabled-button {
+      background: #ccc;
+      color: #888;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
       font-size: 16px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-    #progress {
-      margin-top: 20px;
-      font-style: italic;
-      display: none;
-    }
-    .show {
-      display: block !important;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>📄 PDF to Word Converter</h1>
-    <form id="uploadForm" action="convert.php" method="post" enctype="multipart/form-data">
-      <input type="file" name="pdf_file" accept="application/pdf" required>
-      <button type="submit">Convert</button>
-      <div id="progress">Converting... ⏳</div>
+    <p class="notice">
+      This version is a demo for GitHub Pages. File conversion is disabled.<br>
+      For full functionality, please host on a server with Python and PHP support.
+    </p>
+    <form class="disabled-form">
+      <div class="fake-input">📁 Select PDF file</div><br>
+      <button class="disabled-button" disabled>Convert to Word</button>
     </form>
   </div>
-  <script>
-    document.getElementById('uploadForm').addEventListener('submit', function () {
-      document.getElementById('progress').classList.add('show');
-    });
-  </script>
 </body>
 </html>
